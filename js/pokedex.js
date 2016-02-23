@@ -8,7 +8,7 @@ var pokeApiUrl = "http://pokeapi.co/";
 
 pokeApp.controller('pokemonSearchController', ['$scope', function($scope) {
   var _id = 0;
-  var _list = ['pikachu', 'Miaousse', 'Carapuce', 'Salameche'];
+  var _list = ['Pikachu', 'Miaousse', 'Carapuce', 'Salameche'];
   var _name = '';
   $scope.pokemon = {
     id: function(newId) {
@@ -21,4 +21,8 @@ pokeApp.controller('pokemonSearchController', ['$scope', function($scope) {
      return arguments.length ? (_name = newName) : _name;
    }
   };
+  $scope.searchFilter = function (item) {
+    item2 = $scope.pokemon.name().charAt(0).toUpperCase() + $scope.pokemon.name().slice(1);
+    return item.indexOf(item2) > -1;
+};
 }]);

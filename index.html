@@ -29,8 +29,9 @@
       </form>
       <pre>pokemon.id = <span ng-bind="pokemon.id()"></span></pre>
       <select ng-model="pokemon.name" ng-model-options="{ getterSetter: true }">
-         <option ng-repeat="pok in pokemon.list()" title="{{pok}}" value="{{pok}}">{{pok}}</option>
+         <option ng-repeat="pok in pokemon.list() | filter: searchFilter" title="{{pok}}" value="{{pok}}">{{pok}}</option>
       </select>
+      <Button ng-click="pokemon.name" >GO</Button>
       <!-- Pokémon information -->
       <div></div>
 
