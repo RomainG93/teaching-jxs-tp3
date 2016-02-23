@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+  <meta charset="UTF-8">
+  <title></title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
 
 </head>
 <body ng-app="pokedex">
 
-	<div class="container">
-		<h1>Pokésir</h1>
+  <div class="container">
+    <h1>Pokésir</h1>
 
-		<!-- Search -->
-		<div></div>
+    <!-- Search -->
+    <div ng-controller="pokemonSearchController">
+      <form name="userForm">
+        <label>Id:
+          <input type="number" name="userId"
+          ng-model="pokemon.id"
+          ng-model-options="{ getterSetter: true }" />
+        </label><br />
+        <label>Name:
+          <input type="text" name="pokemonName"
+          ng-model="pokemon.name"
+          ng-model-options="{ getterSetter: true }">
+        </input>
+        </label>
+      </form>
+      <pre>pokemon.id = <span ng-bind="pokemon.id()"></span></pre>
+      <select ng-model="pokemon.name" ng-model-options="{ getterSetter: true }">
+         <option ng-repeat="pok in pokemon.list()" title="{{pok}}" value="{{pok}}">{{pok}}</option>
+      </select>
+      <!-- Pokémon information -->
+      <div></div>
 
-		<!-- Pokémon information -->
-		<div></div>
-
-	</div>
+    </div>
 
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
@@ -30,5 +46,5 @@
     <script src="js/pokedex.js"></script>
 
 
-</body>
-</html>
+  </body>
+  </html>
