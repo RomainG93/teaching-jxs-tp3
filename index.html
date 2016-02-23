@@ -31,7 +31,7 @@
       <select ng-model="pokemon.name" ng-model-options="{ getterSetter: true }">
          <option ng-repeat="pok in pokemon.list() | filter: searchFilter" title="{{pok}}" value="{{pok}}">{{pok}}</option>
       </select>
-      <Button ng-click="pokemon.name" >GO</Button>
+      <Button ng-click="$log.log(pokemon.name())" >GO</Button>
       <!-- Pokémon information -->
       <div></div>
 

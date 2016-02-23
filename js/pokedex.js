@@ -6,7 +6,8 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 
 var pokeApiUrl = "http://pokeapi.co/";
 
-pokeApp.controller('pokemonSearchController', ['$scope', function($scope) {
+pokeApp.controller('pokemonSearchController', ['$scope', '$log', function($scope, $log) {
+  $scope.$log = $log;
   var _id = 0;
   var _list = ['Pikachu', 'Miaousse', 'Carapuce', 'Salameche'];
   var _name = '';
