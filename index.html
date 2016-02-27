@@ -13,7 +13,7 @@
     <h1>Pokésir</h1>
 
     <!-- Search -->
-    <div ng-controller="pokemonSearchController">
+    <div ng-controller="pokemonSearchController" data-ng-init="fetch()">
       <form name="userForm">
         <label>Id:
           <input type="number" name="userId"
@@ -31,11 +31,36 @@
       <select ng-model="pokemon.name" ng-model-options="{ getterSetter: true }">
          <option ng-repeat="pok in pokemon.list() | filter: searchFilter" title="{{pok}}" value="{{pok}}">{{pok}}</option>
       </select>
-      <Button ng-click="$log.log(pokemon.name())" >GO</Button>
+      <!-- <Button ng-click="$log.log(pokemon.name())" >GO</Button> -->
+      </div>
       <!-- Pokémon information -->
-      <div></div>
+      <div ng-controller="pokemonShowDetail">
+        <!-- <Button ng-click="go()" >GO</Button><br /> -->
+        <span>Id: <span ng-bind="detail.id()"></span></span>
+        <span>Name: <span ng-bind="detail.name()"></span></span>
+        <br />
+        <table>
+          <tr>
+            <td>
+              Name
+            </td>
+            <td>
+              Learn Type
+            </td>
+          </tr>
+          <tr ng-repeat="move in detail.moves()">
+            <td>
+              {{move.name}}
+            </td>
+            <td>
+              {{move.learn_type}}
+            </td>
+          </tr>
+        </table>
 
-    </div>
+      </div>
+
+
 
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
